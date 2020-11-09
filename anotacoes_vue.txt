@@ -1,0 +1,30 @@
+npm install -g @vue/cli
+vue create nome_projeto
+npm run serve (ou yarn serve)
+
+-------------------------------------------------------------------
+FAKE SERVER
+-------------------------------------------------------------------
+npm install -g json-server
+json-server --watch banco.json
+
+npm i vue-resource : para utilizar o json que está no servidor fake
+
+----------------------------------------------------------------------
+ROTAS
+----------------------------------------------------------------------
+npm i vue-router
+
+
+
+---------------------------------------------------------------------
+Para verificar onde são gravadas as configurações globais
+---------------------------------------------------------------------
+npm root -g
+
+
+-----------------------------------------------------------------------
+OUTRAS NOTAS
+-----------------------------------------------------------------------
+
+- Verificar configuração dos arquivos, após as instalações dos pacotes do npm (Se há algo que indentifique a instalação dentro dos arquivos e pastas, onde foram instalados)
