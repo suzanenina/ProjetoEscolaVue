@@ -1,0 +1,72 @@
+{
+  "Professores": [ 
+    {
+        "id": 1, 
+        "nome": "Augusto",
+        "qtdeAlunos" : 0
+
+    },
+    {
+      "id": 2, 
+      "nome": "Erika",
+      "qtdeAlunos" : 0
+    },
+    {
+      "id": 3, 
+      "nome": "Marcela",
+      "qtdeAlunos" : 0
+    }
+],
+
+
+  "alunos": [
+    {
+      "id": 1,
+      "nome": "Marcus",
+      "sobrenome": "Saramaro", 
+       "professor": {
+        "id": 1, 
+        "nome": "Augusto"
+       }
+    },
+    {
+      "nome": "Gabriel",
+      "sobrenome": "",
+      "id": 3,
+      "professor": {
+        "id": 1, 
+        "nome": "Augusto"
+       }
+    },
+    {
+      "nome": "Aline",
+      "sobrenome": "",
+      "id": 4,
+       "professor": 
+       {
+        "id": 2, 
+        "nome": "Erika"
+       }
+    },
+    {
+      "nome": "Maria",
+      "sobrenome": "",
+      "id": 5,
+      "professor": 
+      {
+       "id": 2, 
+       "nome": "Erika"
+      }
+    },
+    {
+      "nome": "Ariane",
+      "sobrenome": "",
+      "id": 6,
+       "professor": 
+       {
+        "id": 3, 
+        "nome": "Marcela"
+      }
+    }
+  ]
+}
