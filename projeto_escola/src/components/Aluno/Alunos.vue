@@ -1,14 +1,15 @@
 <template>
   <div>
-    <titulo texto="Aluno" />
-
-    <input
-      type="text"
-      placeholder="Nome do Aluno"
-      v-model="nome"
-      @keyup.enter="addAluno()"
-    />
-    <button class="btn btnInput" @click="addAluno()">Adicionar</button>
+    <titulo :texto="professorId != undefined ? 'Professor:' + this.professor.nome : 'Todos os ALunos' " />
+    <div v-if="professorId != undefined">
+      <input
+        type="text"
+        placeholder="Nome do Aluno"
+        v-model="nome"
+        @keyup.enter="addAluno()"
+      />
+      <button class="btn btnInput" @click="addAluno()">Adicionar</button>
+    </div>
     <table>
       <thead>
         <th>Mat.</th>
@@ -45,17 +46,18 @@ export default {
       titulo: "Aluno",
       professorId: this.$route.params.prof_id,
       nome: "",
+      professor: {},
       alunos: [],
     };
   },
   created() {
     if (this.professorId) {
+      this.carregarProfessores();
       this.$http
         .get("http://localhost:3000/alunos?professor.id=" + this.professorId)
         .then((res) => res.json())
         .then((alunos) => (this.alunos = alunos));
-    } 
-    else {
+    } else {
       this.$http
         .get("http://localhost:3000/alunos")
         .then((res) => res.json())
@@ -68,6 +70,10 @@ export default {
       let _aluno = {
         nome: this.nome,
         sobrenome: "",
+        professor: {
+          id: this.professor.id,
+          nome: this.professor.nome
+        }
       };
 
       this.$http
@@ -81,6 +87,15 @@ export default {
         let indice = this.alunos.indexOf(aluno);
         this.alunos.splice(indice, 1);
       });
+    },
+    carregarProfessores() {
+      this.$http
+        .get("http://localhost:3000/professores/" + this.professorId)
+        .then((res) => res.json())
+        .then((professor) => {
+          this.professor = professor;
+         
+        });
     },
   },
 };
